@@ -12,13 +12,17 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 
 // Firebase config
 import { environment } from '../environments/environment';
+import { NavComponent } from './nav/nav.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    NavComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
