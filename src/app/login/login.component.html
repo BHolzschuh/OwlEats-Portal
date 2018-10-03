@@ -1,0 +1,36 @@
+<div *ngIf="afAuth.user | async as user; else showLogin">
+  <h1>Hello {{ user.displayName }}!</h1>
+  <button (click)="logout()">Logout</button>
+
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Description</th>
+      <th>IMG URL</th>
+    </tr>
+    <tr *ngFor='let item of items | async'>
+      <td>{{item}}</td>
+      <td>Price</td>
+      <td>Description</td>
+      <td>URL</td>
+    </tr>
+  </table>
+
+</div>
+<ng-template #showLogin>
+  <p>Please login.</p>
+  <form class="form" [formGroup]="loginForm">
+
+    <div class='validation-error'>{{message}}</div>
+
+    <label floating>Email</label>
+    <input type="text" formControlName="email" [(ngModel)]="user.email">
+
+    <label floating>Password</label>
+    <input type="password" formControlName="password" [(ngModel)]="user.password">
+
+    <button [disabled]="loginForm.invalid" (click)="login(user)">Login</button>
+
+  </form>
+</ng-template>
