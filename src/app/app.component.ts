@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
+import { FirebaseService } from '../services/firebase.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'owleats-portal';
+  users: Observable<any[]>;
+
+  constructor(private fbS: FirebaseService) {
+    this.users = this.fbS.QueryTable('userInfo', 'first', 'brian');
+  }
 }
