@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AuthGuard } from './guards/auth-guard.service';
 
@@ -14,9 +14,11 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireStorageModule } from '@angular/fire/storage';
 
 // Firebase config
 import { environment } from '../environments/environment';
+import { MembernavComponent } from './membernav/membernav.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { environment } from '../environments/environment';
     LoginComponent,
     NavComponent,
     FooterComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    MembernavComponent
   ],
   imports: [
     AppRoutingModule,
@@ -32,7 +35,9 @@ import { environment } from '../environments/environment';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireAuthModule,
+    AngularFireStorageModule,
     ReactiveFormsModule,
+    FormsModule,
   ],
   providers: [
     AuthGuard,

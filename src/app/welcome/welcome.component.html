@@ -1,28 +1,66 @@
-<button type="button" class="btn btn-danger" (click)="logout()">Logout</button>
+<app-membernav></app-membernav>
 
-<div class="row">
-  <div class="col-12">
+<div class="container">
 
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">Delete</th>
-          <th scope="col">Name</th>
-          <th scope="col">Price</th>
-          <th scope="col">Description</th>
-          <th scope="col">IMG URL</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor='let item of items | async'>
-          <td><a (click)="deleteItem(item)">X</a></td>
-          <td>{{item.name}}</td>
-          <td>{{item.cost}}</td>
-          <td>{{item.description}}</td>
-          <td>{{item.url}}</td>
-        </tr>
-      </tbody>
-    </table>
-
+  <div class="row">
+    <div class="col-12">
+      <h2 class="title">Add Items to the Menu</h2>
+      <div class="validation-error">{{message}}</div>
+    </div>
   </div>
+
+  <div class="row">
+    <div class="col-12 col-md-6">
+      <input class="form-control input-size" placeholder="Product Name" type="text" [(ngModel)]="item.name">
+      <input class="form-control input-size" placeholder="Product Cost" type="text" [(ngModel)]="item.cost">
+    </div>
+
+    <div class="col-12 col-md-6">
+      <textarea class="form-control input-size" placeholder="Product Description" rows="2" [(ngModel)]="item.description"></textarea>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <label class="btn btn-dark btn-block input-size fau-blue">
+        Browse <input #fileInput type="file" (change)="updateFile($event.target.files)" hidden>
+      </label>
+      <div class="center-text">
+        {{uploaded}}
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <button type="button" class="btn btn-dark btn-block input-size fau-red" (click)="startUpload()">Add</button>
+    </div>
+  </div>
+
+
+  <div class="row item-table">
+    <div class="col-12">
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Delete</th>
+            <th scope="col">Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Description</th>
+            <th class="text-center" scope="col">IMG</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor='let item of items'>
+            <td class="text-center"><a class="pointer" (click)="deleteItem(item)"><span class="font-fau-red">X</span></a></td>
+            <td>{{item.name}}</td>
+            <td>${{item.cost}}</td>
+            <td>{{item.description}}</td>
+            <td class="text-center"><img src={{item.url}}></td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+
 </div>

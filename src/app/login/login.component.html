@@ -1,20 +1,30 @@
-<div class="row">
-  <div class="col">
-    <p>Please login.</p>
-    <form class="form" [formGroup]="loginForm">
+<app-nav></app-nav>
 
-      <div class='validation-error'>{{message}}</div>
+<div class="container">
 
-      <label>Email</label>
-      <input class="form-control" type="text" formControlName="email" [(ngModel)]="user.email">
+  <div class="row">
 
-      <label>Password</label>
-      <input class="form-control" type="password" formControlName="password" [(ngModel)]="user.password">
+    <div class="col-12 col-lg-6 fau-logo">
+      <img src="../../assets/owl.png">
+    </div>
 
-      <button type="button" class="btn btn-dark" [disabled]="loginForm.invalid" (click)="login(user)">Login</button>
+    <div class="col-12 col-lg-5 rounded login-col">
+      <h2 class="title">Sign In</h2>
+      <form class="form" [formGroup]="loginForm">
+
+        <div class='validation-error'>{{message}}</div>
+
+        <input class="form-control" type="text" placeholder="Email Address" formControlName="email" [(ngModel)]="user.email">
+
+        <input class="form-control" type="password" placeholder="Password" formControlName="password" [(ngModel)]="user.password">
+
+        <button type="button" class="btn btn-dark btn-lg btn-block fau-red" [disabled]="loginForm.invalid" (click)="login(user)">Login</button>
+        <!--
       <button type="button" class="btn btn-dark" (click)="checkAuth()">Auth</button>
       <button type="button" class="btn btn-dark" (click)="logout()">Logout</button>
-
-    </form>
+      -->
+      </form>
+    </div>
   </div>
+
 </div>

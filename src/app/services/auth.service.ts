@@ -36,10 +36,15 @@ export class AuthService {
             this.authenticationState.next(true);
             this.router.navigate(['welcome/' + info.rid]);
           }
+          else {
+            this.logout();
+            throw new Error("Not a vendor");
+          }
         });
       }
     }
     catch (e) {
+      console.log("Error caught: " + e);
       return this.checkErrors(e.code);
     }
   }
@@ -57,18 +62,20 @@ export class AuthService {
     else if (error == "auth/email-already-in-use") {
       return "That email is already in use";
     }
+    else if (error == 'Not a vendor') {
+      return "Not a vendor";
+    }
   }
 
-  async checkAuth() {
-    const result = await this.afAuth.authState;
-    if (result) {
-      this.authenticationState.next(true);
-      return true;
-    }
-    else {
-      this.authenticationState.next(false);
-      return false;
-    }
+  checkAuth() {
+    this.afAuth.authState.subscribe(user => {
+      if (user) {
+        this.authenticationState.next(true);
+      }
+      else {
+        this.authenticationState.next(false);
+      }
+    });
   }
 
   getVendors() {

@@ -5,3 +5,53 @@
 .card{
   margin-bottom: 10px;
 }
+
+.login-col{
+  margin-top: 20%;
+  background-color:#EDEEEF;
+  padding: 25px;
+  padding-bottom: 35px;
+}
+
+img{
+  width: 100%;
+}
+
+.fau-logo{
+  margin-top: 18%;
+  margin-right: 5%;
+  margin-bottom: -100px;
+}
+
+.fau-red{
+   background-color: #C10435;
+}
+
+.validation-error{
+  color: red;
+}
+
+button{
+  margin-top: 10px;
+}
+
+.title{
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+input{
+  margin-top: 10px;
+}
+
+@media (max-width: 991px){
+  .fau-red{
+    background-color:#003066;
+  }
+  .fau-logo{
+    margin: 0%;
+  }
+  .login-col{
+    margin: 0%;
+  }
+}

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
-import { Router } from '@angular/router';
 
 export interface User {
 	email: string;
@@ -22,7 +21,6 @@ export class LoginComponent implements OnInit {
 	constructor(
 		private authservice: AuthService,
 		private fb: FormBuilder,
-		private router: Router,
 	) { }
 
 	ngOnInit(): void {

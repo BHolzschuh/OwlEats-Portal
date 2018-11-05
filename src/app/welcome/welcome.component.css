@@ -1,0 +1,53 @@
+img{
+   width: auto;
+   height: 50px;
+}
+
+.title{
+   padding-bottom: 10px;
+}
+
+.item-table{
+   margin-top: 20px;
+}
+
+.validation-error{
+   color: red;
+}
+
+.input-size{
+   margin-bottom: 10px;
+}
+
+.fau-red{
+   background-color: #C10435;
+}
+
+.fau-blue{
+   background-color: #003066;
+}
+
+.font-fau-red{
+   color: #C10435;
+   font-size: 25px;
+}
+
+.center-text{
+   text-align: center;
+   margin-top: -8px;
+   margin-bottom: -20px;
+}
+
+@media(max-width: 767px){
+   .center-text{
+      margin-bottom: 0px;
+   }
+}
+
+.validation-error{
+   margin-bottom: 5px;
+}
+
+.pointer{
+   cursor: pointer;
+}
